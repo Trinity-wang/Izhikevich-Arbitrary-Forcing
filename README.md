@@ -9,9 +9,33 @@ MATLAB R2006a or later is required to run this program.
 
 ### Setting Simulation Parameters
 
+![alt text](https://github.com/agh-nmi/Izhikevich-Arbitrary-Forcing/blob/master/Setting%20Parameters/1.%20Setting%20Simulation%20Parameters.jpg)
+
 ### Setting Izhikevich Neuron Model Parameters
 
+![alt text](https://github.com/agh-nmi/Izhikevich-Arbitrary-Forcing/blob/master/Setting%20Parameters/2.%20Setting%20Model%20Parameters.jpg)
+
 ### Setting Stimulus Parameters
+
+#### Stimulus Time
+
+![alt text](https://github.com/agh-nmi/Izhikevich-Arbitrary-Forcing/blob/master/Setting%20Parameters/3.%20Setting%20Stimulus%20-%20Time%20Parameters.jpg)
+
+#### Stimulus Amplitude
+
+![alt text](https://github.com/agh-nmi/Izhikevich-Arbitrary-Forcing/blob/master/Setting%20Parameters/4.%20Setting%20Stimulus%20-%20Amplitude%20Parameters.jpg)
+
+#### Stimulus Frequency
+
+![alt text](https://github.com/agh-nmi/Izhikevich-Arbitrary-Forcing/blob/master/Setting%20Parameters/5.%20Setting%20Stimulus%20-%20Frequency%20Parameters.jpg)
+
+#### Stimulus Phase Offset
+
+![alt text](https://github.com/agh-nmi/Izhikevich-Arbitrary-Forcing/blob/master/Setting%20Parameters/6.%20Setting%20Stimulus%20-%20Phase%20Offset%20Parameter.jpg)
+
+#### Stimulus Noise
+
+![alt text](https://github.com/agh-nmi/Izhikevich-Arbitrary-Forcing/blob/master/Setting%20Parameters/7.%20Setting%20Stimulus%20-%20Noise%20Parameters.jpg)
 
 Below is an example program output: An Izhikevich spiking neuron model with parameters for Inhibition-induced bursting and an underdamped sinusoid injection current with a 20-10 Hz frequency sweep and noise.
 
