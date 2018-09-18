@@ -90,7 +90,6 @@ stim = [zeros(1, stim_bnd(1)/sim_res), stim, zeros(1, (sim_bnd(2) - stim_bnd(2))
 for t = 1 : length(time) - 1
     V = V + 0.25*(0.04*V^2 + 5*V + 140 - U + stim(t));
     U = U + 0.25*p(n, 1)*(p(n, 2)*V - U);
-    
     if V > 30                   % If there is a spike
        V_time(t + 1) = 30;      % Generate peak
        V = p(n, 3);             % Reset membrane voltage to c
