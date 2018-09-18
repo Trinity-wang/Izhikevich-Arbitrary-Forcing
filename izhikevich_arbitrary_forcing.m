@@ -2,8 +2,9 @@
 %  COPYWRITE: ANDREW HANSEN, 2015
 %  BRANDEIS UNIVERSITY
 
-%% 1. SIMULATION PARAMETERS (PLAY AROUND WITH THESE)
 
+
+%% 1. SIMULATION PARAMETERS (PLAY AROUND WITH THESE)
 clc;
 clear all;
 close all;
@@ -13,10 +14,10 @@ sim_res = 0.001; % Initialize simulation time sample resolution (seconds)
 sim_smp = sim_bnd(2)/sim_res; % Initialize simulation time sample quanta (samples)
 time = linspace(sim_res, sim_bnd(2), sim_smp); % Initialize sim time vector (seconds)
 
+
+
 %% 2. MODEL PARAMETERS (PICK YOUR PREFERRED NEURON MODEL)
-
 n = 16; % Set Izhikevich model parameters
-
 p = [ 00.020,  00.200, -65.000,  06.000,  14.000;... % 01. Tonic spiking
       00.020,  00.250, -65.000,  06.000,  00.500;... % 02. Phasic spiking
       00.020,  00.200, -50.000,  02.000,  15.000;... % 03. Tonic bursting
@@ -38,8 +39,9 @@ p = [ 00.020,  00.200, -65.000,  06.000,  14.000;... % 01. Tonic spiking
      -00.020, -01.000, -60.000,  08.000,  80.000;... % 19. Inhibition-induced spiking
      -00.026, -01.000, -45.000,  00.000,  80.000];   % 20. Inhibition-induced bursting
 
-%% 3. MEMBRANE TIME PARAMETERS
 
+
+%% 3. MEMBRANE TIME PARAMETERS
 V_time = zeros(size(time)); % Allocate membrane potential time vector memory
 U_time = V_time;            % Allocate membrane recovery variable time vector memory
 V = -70;                    % Initial membrane potential
@@ -48,9 +50,10 @@ spike = V_time;             % Allocate spike vector memory
 spike_time = V_time;        % Allocate spike time vector memory
 spike_freq =  V_time;       % Allocate spike time vector memory
 
+
+
 %% 4. STIMULUS
 % Note: "0.000" represent editable parameter values
-
 %  A. STIMULUS TIME SERIES (ALTER stim_bnd TO ALTER INJECTION CURRENT START/END)
 stim_bnd = [0, 1]; % Initialize forcing signal generation time (seconds)
 stim_int = diff(stim_bnd); % Initialize forcing signal time interval (seconds)
@@ -84,8 +87,9 @@ freq_noise = freq.*randn(1, stim_smp)*0.000;
 stim = (amp + amp_noise).*sin((freq + freq_noise).*stim + phase_offset);
 stim = [zeros(1, stim_bnd(1)/sim_res), stim, zeros(1, (sim_bnd(2) - stim_bnd(2))/sim_res)];
 
-%% 5. SIMULATION
 
+
+%% 5. SIMULATION
 %  A. EXECUTION
 for t = 1 : length(time) - 1
     V = V + 0.25*(0.04*V^2 + 5*V + 140 - U + stim(t));
@@ -114,8 +118,9 @@ k = exp(-(x/sigma).^2/2)/(sigma*sqrt(2*pi));
 spike_freq = conv(spike_freq, k);
 spike_freq = spike_freq(floor(length(k)/2) : end - ceil(length(k)/2));
 
-%% OUTPUT
 
+
+%% 6. OUTPUT
 % (BELOW) Plot simulation variables
 figure();
 subplot(5, 1, 1); plot(time, stim);
