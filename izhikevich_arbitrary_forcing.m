@@ -55,27 +55,26 @@ spike_freq =  V_time;       % Allocate spike time vector memory
 %% 4. STIMULUS
 % Note: "0.000" represent editable parameter values
 %  A. STIMULUS TIME SERIES (ALTER stim_bnd TO ALTER INJECTION CURRENT START/END)
-stim_bnd = [0, 1]; % Initialize forcing signal generation time (seconds)
-stim_int = diff(stim_bnd); % Initialize forcing signal time interval (seconds)
-stim_smp = stim_int/sim_res; % Initialize forcing signal time sample quanta (samples)
+stim_bnd = [0, 1];                            % Initialize forcing signal generation time (seconds)
+stim_int = diff(stim_bnd);                    % Initialize forcing signal time interval (seconds)
+stim_smp = stim_int/sim_res;                  % Initialize forcing signal time sample quanta (samples)
 stim = linspace(sim_res, stim_int, stim_smp); % Initialize forcing signal time vector values
 
 %  B. STIMULUS AMPLITUDE (PLAY AROUND WITH amp AND amp_damp)
 amp = [0.000, 0.000]; % Initialize carrier signal amplitude (mA)
-amp_damp = 0.000; % Initialize terminal carrier signal dampening (mA)
+amp_damp = 0.000;     % Initialize terminal carrier signal dampening (mA)
 % (BELOW) Initialize carrier signal amplitude vector values (mA)
 amp = (linspace(amp(1), amp(2), stim_smp) + p(n, 5)).*exp(amp_damp*stim);
 
 %  C. STIMULUS FREQUENCY (PLAY AROUND WITH freq_bnd AND freq_damp)
 freq_bnd = [0.000, 0.000]; % Initialize carrier signal frequency (Hz)
-freq_damp = 0.000; % Initialize terminal carrier signal dampening (Hz)
+freq_damp = 0.000;         % Initialize terminal carrier signal dampening (Hz)
 % (BELOW) Initialize carrier signal frequency vector values (Hz)
 freq = (2*pi*linspace(freq_bnd(1), freq_bnd(2), stim_smp)).*exp(freq_damp*stim);;
 
 %  D. STIMULUS PHASE (PLAY AROUND WITH phase_offset)
 phase_offset = ((2*pi*0.000)/360); % Convert initial forcing signal phase offset (degrees)
-% Initialize carrier signal phase vector values (degrees)
-phase = cumsum(freq)/sim_res; % Initialize carrier signal phase vector values (degrees)
+phase = cumsum(freq)/sim_res;      % Initialize carrier signal phase vector values (degrees)
 
 %  E. STIMULUS NOISE (PLAY AROUND WITH amp_noise AND freq_noise)
 % (BELOW) Initialize carrier signal amplitude noise vector values (percent)
